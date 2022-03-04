@@ -38,6 +38,11 @@ button {
 
 .counter {
   font-family: 'Bungee', sans-serif;
+  /* color: red; */
   /* display: flex;
   align-self: flex-end; */
+}
+
+.negative {
+  color: red;
 }
