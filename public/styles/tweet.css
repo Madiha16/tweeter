@@ -9,7 +9,7 @@
 }
 
 .tweet:hover {
-  box-shadow: 10px 10px;
+  box-shadow: 10px 10px #c0bbbb;
 }
 
 .avatar-pic {
