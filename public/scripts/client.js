@@ -19,14 +19,17 @@ $(() => {
     "created_at": 1461116232227
   };
 
+  // You can start by having your function create hardcoded tweets, like so:
+  // const $tweet = $(`<article class="tweet">Hello world</article>`);
+  // console.log("$tweet:", $tweet);// $tweet: k.fn.init(1)
+
   const markup = `
-  <article class="tweets">
     <header>
       <figure>
         <img src=${tweetData.user.avatars}>
         <figcaption>${tweetData.user.name}</figcaption>
       </figure>
-        <small>${tweetData.user.handle}</small>
+      <small>${tweetData.user.handle}</small>
     </header>
     <strong>${tweetData.content.text}</strong>
     <footer>
@@ -39,16 +42,39 @@ $(() => {
         </div>
       </sub>
     </footer>
-  </article>
   `;
-  console.log("markup::", markup);
-  // const $article = $(`<article class="tweet"></article>`);
-  // $article.append(markup);
-  // console.log("$article::", $article);
+  // console.log("markup::", markup);
+
+  // Within the client.js file, we're going to define a function createTweetElement
+  // that takes in a tweet object and is responsible for
+  // returning a tweet <article> element containing the entire HTML structure of the tweet.
+  const createTweetElement = (tweetData) => {
+
+    const $avatars = $('<img>').text(`src=${tweetData.user.avatars}`);
+    const $name = $('<figcaption>').text(`src=${tweetData.user.name}`);
+    const $handle = $('<small>').text(`${tweetData.user.handle}`);
+    const $figure = $('<figure>');
+    const $header = $('<header>');
+
+    $figure.append($avatars, $name);
+    $header.append($figure, $handle)
 
 
-  // const $tweet = $(`<article class="tweet">Hello world</article>`);
-  // console.log("$tweet:", $tweet);// $tweet: k.fn.init(1)
+
+
+
+
+
+    // const $tweet = $('<article>').addClass('tweet');
+    // $tweet.append($header, $strong, $footer);
+
+    // return $tweet;
+
+    return $header;
+
+  };
+  console.log(createTweetElement(tweetData), "hello!!");
+
 
   // const $tweet = createTweetElement(tweetData);
 
