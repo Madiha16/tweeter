@@ -17,10 +17,10 @@ nav > span {
   font-family: 'Bungee', sans-serif;
 }
 
-.new-tweet {
+nav > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .fa-angles-down {
