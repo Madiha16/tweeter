@@ -10,10 +10,6 @@ form {
   width: 90%;
 }
 
-/* label {
-  font-family: 'Source Sans Pro', sans-serif;
-} */
-
 #tweet-text {
   background-color: transparent;
   resize: none;
@@ -26,21 +22,17 @@ form {
 .form-footer {
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 
 button {
   font-family: 'Bungee', sans-serif;
   color: white;
   background-color: #4056A1;
-  /* display: flex;
-  align-self: flex-start; */
 }
 
 .counter {
   font-family: 'Bungee', sans-serif;
-  /* color: red; */
-  /* display: flex;
-  align-self: flex-end; */
 }
 
 .negative {
