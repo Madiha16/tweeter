@@ -1,7 +1,6 @@
 .tweet {
   width: 90%;
   height: 250px;
-  margin-top: 20px;
   border: solid 5px;
   display: flex;
   flex-direction: column;
@@ -12,10 +11,6 @@
   box-shadow: 10px 10px #c0bbbb;
 }
 
-.avatar-pic {
-  width: 80px;
-}
-
 .tweet > header {
   margin-top: 0px;
   height: 100%;
@@ -23,14 +18,19 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background-color: #f4f1ec;
 }
 
-header > span {
+figure {
+  margin: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+figure > img {
+  width: 80px;
 }
 
 p {
