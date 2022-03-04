@@ -30,6 +30,7 @@ main {
   margin: auto;
   background-color: #f4f1ec;
   justify-content: center;
+  flex-direction: column;
 }
 /* 90% of the width of its parent element
 center aligned to the body

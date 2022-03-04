@@ -11,13 +11,7 @@ header {
 
 .bold {
   font-weight: normal;
-  /* color: blue; */
 }
-
-/* div{
-  display: flex;
-  align-items: center;
-} */
 
 /* The header should have a height of 400px and be 100% the width of its parent container
 The avatar should be centered vertically and horizontally (Hint: the justify-content and align-items properties are helpful for centering things if you're using Flexbox.)
