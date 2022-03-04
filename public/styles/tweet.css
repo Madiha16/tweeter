@@ -33,14 +33,20 @@ figure > img {
   width: 80px;
 }
 
-p {
-  border-bottom: 3px solid;
+small {
+  color: gray;
 }
 
-article > footer {
+strong {
+  border-bottom: 3px solid;
+  padding: 30px;
+}
+
+sub {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .fa-flag:hover{
