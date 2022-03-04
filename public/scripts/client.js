@@ -23,64 +23,45 @@ $(() => {
   // const $tweet = $(`<article class="tweet">Hello world</article>`);
   // console.log("$tweet:", $tweet);// $tweet: k.fn.init(1)
 
-  const markup = `
-    <header>
-      <figure>
-        <img src=${tweetData.user.avatars}>
-        <figcaption>${tweetData.user.name}</figcaption>
-      </figure>
-      <small>${tweetData.user.handle}</small>
-    </header>
-    <strong>${tweetData.content.text}</strong>
-    <footer>
-      <sub>
-        <span><date>${tweetData.created_at}</date> days ago </span>
-        <div>
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-heart"></i>
-        </div>
-      </sub>
-    </footer>
-  `;
-  // console.log("markup::", markup);
-
   // Within the client.js file, we're going to define a function createTweetElement
   // that takes in a tweet object and is responsible for
   // returning a tweet <article> element containing the entire HTML structure of the tweet.
   const createTweetElement = (tweetData) => {
 
-    const $avatars = $('<img>').text(`src=${tweetData.user.avatars}`);
-    const $name = $('<figcaption>').text(`src=${tweetData.user.name}`);
-    const $handle = $('<small>').text(`${tweetData.user.handle}`);
-    const $figure = $('<figure>');
-    const $header = $('<header>');
+    let $tweet = `
+    <article class="tweet">
+      <header>
+        <figure>
+          <img src=${tweetData.user.avatars}>
+          <figcaption>${tweetData.user.name}</figcaption>
+        </figure>
+          <small>${tweetData.user.handle}</small>
+      </header>
 
-    $figure.append($avatars, $name);
-    $header.append($figure, $handle)
+      <strong>${tweetData.content.text}</strong>
 
+      <footer>
+        <sub>
+          <span><date>${tweetData.created_at}</date> days ago </span>
+          <div>
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </sub>
+      </footer>
+    </article>
+    `;
 
-
-
-
-
-
-    // const $tweet = $('<article>').addClass('tweet');
-    // $tweet.append($header, $strong, $footer);
-
-    // return $tweet;
-
-    return $header;
+    return $tweet;
 
   };
-  console.log(createTweetElement(tweetData), "hello!!");
 
+  const $tweet = createTweetElement(tweetData);
 
-  // const $tweet = createTweetElement(tweetData);
-
-  // // Test / driver code (temporary)
-  // console.log($tweet); // to see what it looks like
-  // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  // Test / driver code (temporary)
+  console.log($tweet); // to see what it looks like
+  $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
 });
 
