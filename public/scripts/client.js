@@ -19,34 +19,33 @@ $(() => {
     "created_at": 1461116232227
   };
 
-  // const createTweetElement = function() {
-  //   // const $article = $(`<article class="tweet"></article>`);
-  //   // $article.children()
-
-  // };
-
-  const createTweetElement = `
-  <article class="user">
+  const markup = `
+  <article class="tweets">
     <header>
       <figure>
         <img src=${tweetData.user.avatars}>
-        <figcaption>
-          ${tweetData.user.name}
-        </figcaption>
+        <figcaption>${tweetData.user.name}</figcaption>
       </figure>
         <small>${tweetData.user.handle}</small>
     </header>
     <strong>${tweetData.content.text}</strong>
     <footer>
       <sub>
-        <span>
-          <date>${tweetData.created_at}</date>
-        </span>
+        <span><date>${tweetData.created_at}</date> days ago </span>
+        <div>
+          <i class="fa-solid fa-flag"></i>
+          <i class="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
       </sub>
     </footer>
+  </article>
   `;
-  
-  console.log("createTweetElement::", createTweetElement);
+  console.log("markup::", markup);
+  // const $article = $(`<article class="tweet"></article>`);
+  // $article.append(markup);
+  // console.log("$article::", $article);
+
 
   // const $tweet = $(`<article class="tweet">Hello world</article>`);
   // console.log("$tweet:", $tweet);// $tweet: k.fn.init(1)
