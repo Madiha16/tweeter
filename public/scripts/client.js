@@ -78,6 +78,7 @@ $(() => {
 
     // Serialize the form data
     const data = $(this).serialize();
+    console.log("data::", data);
 
     $.ajax({
       method: 'POST',
