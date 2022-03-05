@@ -17,7 +17,9 @@ $(() => {
   };
 
   const createTweetElement = function(tweet) {
-    let $tweet = `
+    // let tweetCreatedDate = timeago.format(tweet.created_at);
+
+    let $tweet = `  
     <article class="tweet">
       <header>
         <figure>
@@ -29,7 +31,7 @@ $(() => {
       <strong>${tweet.content.text}</strong>
       <footer>
         <sub>
-          <p>timeago.format(${tweet.created_at})</p>
+          <p>${timeago.format(tweet.created_at)}</p>
         <div>
           <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
