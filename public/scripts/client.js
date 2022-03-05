@@ -5,7 +5,7 @@
  */
 
 $(() => {
-  
+
   // Fake data taken from initial-tweets.json
   const data = [
     {
@@ -70,5 +70,24 @@ $(() => {
 
   renderTweets(data);
 
-});
+  $("#tweet-submit").submit(function(event) {
+    // alert( "Handler for .submit() called." );
 
+    // Add an event listener for submit and prevent its default behaviour
+    event.preventDefault();
+
+    // Serialize the form data
+    const data = $(this).serialize();
+
+    $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: data
+    }).then(() => {
+      console.log('tweet added successfully');
+      renderTweets(data);
+    });
+
+  });
+  
+});
