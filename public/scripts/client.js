@@ -6,27 +6,6 @@
 
 $(() => {
 
-  // // Method 2: Use an escape function
-  // if tweet element was created as a string literal (not a jQuery object)
-
-  // // A typical way to prevent XSS is to "escape" the potentially insecure text.
-  // // "Escaping text" means re-encoding text so that unsafe characters are converted
-  // // into a safe "encoded" representation. For example, with HTML, <script> would
-  // // be converted to &lt;script&gt;. The HTML tag would then be visible to the
-  // // user, but not evaluated as a tag by the browser.
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
-
-  const safeHTML = `<p>${escape("<script>alert('uh oh!');</script>")}</p>`;
-
-  console.log("safeHTML::", safeHTML);
-  // safeHTML:: <p>&lt;script&gt;alert('uh oh!');&lt;/script&gt;</p>
-
-
-
   const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
@@ -38,20 +17,28 @@ $(() => {
     }
   };
 
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+  // const safeHTML = `<p>${escape("<script>alert('uh oh!');</script>")}</p>`;
+  // console.log("safeHTML::", safeHTML);
+
   const createTweetElement = function(tweet) {
     let $tweet = `  
     <article class="tweet">
       <header>
         <figure>
-          <img src=${tweet.user.avatars}>
-          <figcaption>${tweet.user.name}</figcaption>
+          <img src=${escape(tweet.user.avatars)}>
+          <figcaption>${escape(tweet.user.name)}</figcaption>
         </figure>
-        <small>${tweet.user.handle}</small>
+        <small>${escape(tweet.user.handle)}</small>
       </header>
-      <strong>${tweet.content.text}</strong>
+      <strong>${escape(tweet.content.text)}</strong>
       <footer>
         <sub>
-          <p>${timeago.format(tweet.created_at)}</p>
+          <p>${escape(timeago.format(tweet.created_at))}</p>
         <div>
           <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -63,6 +50,7 @@ $(() => {
     `;
     return $tweet;
   };
+  // console.log(createTweetElement());
 
   // renderTweets(data);
 
