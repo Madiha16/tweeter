@@ -88,13 +88,20 @@ $(() => {
 
     console.log("tweetText.val()::", tweetText.val());
 
+    const $error = $('.error');
+    console.log("$error::", $error);
+
     if (tweetText.val().length > 140) {
-      alert("You have exceeded the maxiumum allowable tweet length");
+      // alert("You have exceeded the maxiumum allowable tweet length");
+      $('.error').addClass('error').addtext('Maximum tweet length exceeded');
       event.preventDefault();
+    } else {
+      $('.error').removeClass('error:empty');
     }
   
     if (!tweetText.val()) {
-      alert("You cannot post an empty tweet!");
+      // alert("You cannot post an empty tweet!");
+      $('.error').addClass('error').addtext('Maximum tweet length exceeded');
       event.preventDefault();
     }
 
