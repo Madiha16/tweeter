@@ -12,6 +12,7 @@ $(() => {
     // takes return value and appends it to the tweets container
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
+      // use .prepend() to add tweet to beginning of elem
       $('#tweets-container').prepend($tweet);
     }
   };
