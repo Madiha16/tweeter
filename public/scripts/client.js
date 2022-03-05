@@ -33,7 +33,7 @@ $(() => {
     <article class="tweet">
       <header>
         <figure>
-          <img src=${escape(tweet.user.avatars)}>
+          <img src="${escape(tweet.user.avatars)}">
           <figcaption>${escape(tweet.user.name)}</figcaption>
         </figure>
         <small>${escape(tweet.user.handle)}</small>
@@ -63,8 +63,10 @@ $(() => {
     // Add an event listener for submit and prevent its default behaviour
     event.preventDefault();
 
-    // console.log("$(this):", $(this));
-    // console.log("this", this);
+    console.log("$(this):", $(this));
+    // $(this): k.fn.init [form#tweet-submit]
+    console.log("this", this);
+    //< form id="tweet-submit" method="POST" action="/tweets"></form>
 
     // // this is searching for textarea by it's HTML tag name
     // const textarea = $(this).find('textarea');
@@ -91,30 +93,39 @@ $(() => {
 
     console.log("tweetText.val()::", tweetText.val());
 
-    if (tweetText.val().length > 140) {
-      $('div.error').slideDown().text(' 🛑Maximum tweet length exceeded');
-      event.preventDefault();
-    } else {
-      $('div.error').slideUp();
-    }
-  
     if (!tweetText.val()) {
       $('div.error').slideDown().text('🛑 Cannot post an empty tweet');
       event.preventDefault();
     } else {
-      $('div.error').slideUp();
+      $('div.error').slideUp(2000);
     }
 
-    $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: data
-    }).then(() => {
-      console.log('tweet added successfully');
-      renderTweets(data);
-    });
+    if (tweetText.val().length > 140) {
+      event.preventDefault();
+      $('div.error').slideDown().text('🛑 Maximum tweet length exceeded');
+      // event.preventDefault();
+    } else {
 
-    loadTweets();
+
+      $.ajax({
+        method: 'POST',
+        url: '/tweets',
+        data: data
+      }).then(() => {
+        console.log('tweet added successfully');
+  
+        // clear text area
+        $(this).find('textarea').val('');
+  
+        // reset counter
+        $('.counter').val('140');
+  
+        renderTweets(data);
+      });
+  
+      loadTweets();
+
+    }
 
   });
   
@@ -127,7 +138,7 @@ $(() => {
     }).then((tweets) => {
       console.log(tweets);
 
-      // // ??? empty the parent element before we append new children to it
+      // empty the parent element before we append new children to it
       $('#tweets-container').empty();
 
       renderTweets(tweets);
