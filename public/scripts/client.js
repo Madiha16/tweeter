@@ -6,23 +6,24 @@
 
 $(() => {
 
-  // Method 1: Use .text (if element created using jQuery)
+  // // Method 2: Use an escape function
+  // if tweet element was created as a string literal (not a jQuery object)
 
-  // A typical way to prevent XSS is to "escape" the potentially insecure text.
-  // "Escaping text" means re-encoding text so that unsafe characters are converted
-  // into a safe "encoded" representation. For example, with HTML, <script> would
-  // be converted to &lt;script&gt;. The HTML tag would then be visible to the
-  // user, but not evaluated as a tag by the browser.
+  // // A typical way to prevent XSS is to "escape" the potentially insecure text.
+  // // "Escaping text" means re-encoding text so that unsafe characters are converted
+  // // into a safe "encoded" representation. For example, with HTML, <script> would
+  // // be converted to &lt;script&gt;. The HTML tag would then be visible to the
+  // // user, but not evaluated as a tag by the browser.
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
-  const hmm = $("<div>").text("<script>alert('uh oh!');</script>");
-  console.log("hmm::", hmm[0].outerText);
-  <script>alert('uh oh!');</script>
-  // above script is dangerous! causes a pop-up alert on tweet sumbisson
-  // use .text for jQuery created elements
-  hmm.[0]outerHTML = <div>&lt;script&gt;alert('uh oh!');&lt;/script&gt;</div>
-  hmm.[0]outerText = <script>alert('uh oh!');</script> 
-  // wont work with parentheses called >> hmm.[0]outerText() <<<
+  const safeHTML = `<p>${escape("<script>alert('uh oh!');</script>")}</p>`;
 
+  console.log("safeHTML::", safeHTML);
+  // safeHTML:: <p>&lt;script&gt;alert('uh oh!');&lt;/script&gt;</p>
 
 
 
