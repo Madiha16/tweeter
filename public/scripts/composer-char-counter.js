@@ -3,6 +3,7 @@ $(() => {
   $('textarea').on("input", function() {
     const maxlength = 140;
     const tweetText = $(this).val();
+    const tweetLength = $(this).val().length;
     const children = $(this).parent().children()[2];
     const $children = $(children).children()[1];
     const counter = $($children);

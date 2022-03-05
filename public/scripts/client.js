@@ -8,13 +8,6 @@ $(() => {
 
   $('div.error').hide();
 
-  const renderTweets = function(tweets) {
-    for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweet);
-    }
-  };
-
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -47,9 +40,16 @@ $(() => {
     return $tweet;
   };
 
+  const renderTweets = function(tweets) {
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $('#tweets-container').prepend($tweet);
+    }
+  };
 
   $("#tweet-submit").submit(function(event) {
     event.preventDefault();
+    // get tweet-text input
     const tweetText = $('#tweet-text');
 
     if (!tweetText.val()) {
@@ -62,7 +62,6 @@ $(() => {
 
     } else {
 
-      $('div.error').slideUp(2000);
       const data = $(this).serialize();
 
       $.ajax({
@@ -70,12 +69,14 @@ $(() => {
         url: '/tweets',
         data: data
       }).then(() => {
-        renderTweets(data);
-        $(this).find('textarea').val('');
-        $('.counter').val('140');
+        $('div.error').slideUp()
         loadTweets();
+        // empty textarea and reset counter
+        $(this).find('textarea').val('');
+        $(this).find('.counter').val('140');
       });
     }
+
   });
   
   const loadTweets = function() {

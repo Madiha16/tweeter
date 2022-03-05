@@ -9,18 +9,21 @@
   background-color: #FFD2D2;
   margin: 10px 0px;
   padding:12px;
+  width: 90%;
 }
 
 form {
   display: flex;
   flex-direction: column;
   width: 90%;
+  margin-top: 30px;
 }
 
 #tweet-text {
   background-color: transparent;
   resize: none;
-  border-top: 0;
+  border-top: 0px;
+  margin-top: 20px;
   border-left: 0;
   border-right: 0;
   border-bottom-width: 3px;
