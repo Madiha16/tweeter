@@ -6,6 +6,9 @@
 
 $(() => {
 
+  // hide error div
+  $('div.error').hide();
+
   const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
@@ -88,22 +91,20 @@ $(() => {
 
     console.log("tweetText.val()::", tweetText.val());
 
-    const $error = $('.error');
-    console.log("$error::", $error);
-
     if (tweetText.val().length > 140) {
-      // alert("You have exceeded the maxiumum allowable tweet length");
-      $('.error').addClass('error').addtext('Maximum tweet length exceeded');
+      $('div.error').slideDown().text('🛑 Maximum tweet length exceeded');
       event.preventDefault();
     } else {
-      $('.error').removeClass('error:empty');
+      $('div.error').hide();
     }
   
     if (!tweetText.val()) {
-      // alert("You cannot post an empty tweet!");
-      $('.error').addClass('error').addtext('Maximum tweet length exceeded');
+      $('div.error').slideDown().text('🛑 Cannot post an empty tweet');
       event.preventDefault();
+    } else {
+      $('div.error').hide();
     }
+
 
 
     $.ajax({

@@ -4,10 +4,6 @@
   width: 100%;
 }
 
-.fa-times-circle {
-  display: none;
-}
-
 .error {
   color: #D8000C;
   background-color: #FFD2D2;
