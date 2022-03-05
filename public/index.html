@@ -70,15 +70,18 @@
 
         <!-- <h2>Compose Tweet</h2> -->
 
-        <table>
-          <tr>Maximum tweet length exceeded</tr>
+        <!-- <table>Maximum tweet length exceeded</table> -->
+        
+        <div class="error">
+          <i class="fa fa-times-circle"></i>
+          Maximum tweet length exceeded
+        </div>
+        
+        <!-- <table>
+                  <tr>Cannot post an empty tweet</tr>
         </table>
 
-        <table>
-          <tr>Cannot post an empty tweet</tr>
-        </table>
-        
-        <label></label>
+        <label></label> -->
 
         <form id="tweet-submit" method="POST" action="/tweets">
           <label for="tweet-text"><b>What are you humming about?</b></label>
