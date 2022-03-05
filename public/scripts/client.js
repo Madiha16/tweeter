@@ -64,12 +64,12 @@ $(() => {
     // console.log("tweetText.val()::", tweetText.val());// tweetText.val():: hi hello
 
 
-
     // Serialize the form data
     // text=Whatever%20the%20tweet%20was
     const data = $(this).serialize();
     // console.log("data::", data);
     // for tweet = hello > data:: text=hello%20jello
+
 
     // The user should be given an error that their tweet content is too long
     // or that it is not present (ideally separate messages for each scenario)
@@ -89,7 +89,6 @@ $(() => {
     }
 
 
-    
     $.ajax({
       method: 'POST',
       url: '/tweets',
@@ -99,7 +98,7 @@ $(() => {
       renderTweets(data);
     });
 
-    // loadTweets();
+    loadTweets();
 
   });
   
