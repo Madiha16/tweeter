@@ -6,6 +6,26 @@
 
 $(() => {
 
+  // Method 1: Use .text (if element created using jQuery)
+
+  // A typical way to prevent XSS is to "escape" the potentially insecure text.
+  // "Escaping text" means re-encoding text so that unsafe characters are converted
+  // into a safe "encoded" representation. For example, with HTML, <script> would
+  // be converted to &lt;script&gt;. The HTML tag would then be visible to the
+  // user, but not evaluated as a tag by the browser.
+
+  const hmm = $("<div>").text("<script>alert('uh oh!');</script>");
+  console.log("hmm::", hmm[0].outerText);
+  <script>alert('uh oh!');</script>
+  // above script is dangerous! causes a pop-up alert on tweet sumbisson
+  // use .text for jQuery created elements
+  hmm.[0]outerHTML = <div>&lt;script&gt;alert('uh oh!');&lt;/script&gt;</div>
+  hmm.[0]outerText = <script>alert('uh oh!');</script> 
+  // wont work with parentheses called >> hmm.[0]outerText() <<<
+
+
+
+
   const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
