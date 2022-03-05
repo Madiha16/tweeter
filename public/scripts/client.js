@@ -92,20 +92,18 @@ $(() => {
     console.log("tweetText.val()::", tweetText.val());
 
     if (tweetText.val().length > 140) {
-      $('div.error').slideDown().text('🛑 Maximum tweet length exceeded');
+      $('div.error').slideDown().text(' 🛑Maximum tweet length exceeded');
       event.preventDefault();
     } else {
-      $('div.error').hide();
+      $('div.error').slideUp();
     }
   
     if (!tweetText.val()) {
       $('div.error').slideDown().text('🛑 Cannot post an empty tweet');
       event.preventDefault();
     } else {
-      $('div.error').hide();
+      $('div.error').slideUp();
     }
-
-
 
     $.ajax({
       method: 'POST',
