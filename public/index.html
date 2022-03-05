@@ -67,7 +67,19 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+
+        <!-- <h2>Compose Tweet</h2> -->
+
+        <table>
+          <tr>Maximum tweet length exceeded</tr>
+        </table>
+
+        <table>
+          <tr>Cannot post an empty tweet</tr>
+        </table>
+        
+        <label></label>
+
         <form id="tweet-submit" method="POST" action="/tweets">
           <label for="tweet-text"><b>What are you humming about?</b></label>
           <textarea name="text" id="tweet-text"></textarea>
