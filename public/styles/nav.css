@@ -29,3 +29,8 @@ nav > span {
 .fa-angles-down {
  color: red;
 }
+
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+  //
+}

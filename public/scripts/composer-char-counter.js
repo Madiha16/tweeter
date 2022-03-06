@@ -1,14 +1,12 @@
 $(() => {
 
   $('textarea').on("input", function() {
-    const maxlength = 140;
-    const tweetText = $(this).val();
     const tweetLength = $(this).val().length;
-    const children = $(this).parent().children()[2];
-    const $children = $(children).children()[1];
-    const counter = $($children);
+    const $child1 = $(this).parent().children()[2];
+    const $child2 = $($child1).children()[1];
+    const counter = $($child2);
 
-    counter[0].innerText = maxlength - tweetLength;
+    counter[0].innerText = 140 - tweetLength;
     if (counter[0].innerText < 0) {
       counter.addClass('negative');
     } else {

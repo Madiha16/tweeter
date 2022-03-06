@@ -35,3 +35,8 @@ main {
 /* 90% of the width of its parent element
 center aligned to the body
 the same background colour as the <body> element */
+
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+  //
+}

@@ -6,6 +6,7 @@
 
 $(() => {
 
+  // Hide error message initally
   $('div.error').hide();
 
   const escape = function(str) {
@@ -47,6 +48,7 @@ $(() => {
     }
   };
 
+  // AJAX POST to /tweets on tweet submission
   $("#tweet-submit").submit(function(event) {
     event.preventDefault();
     // get tweet-text input
@@ -71,8 +73,9 @@ $(() => {
       }).then(() => {
         $('div.error').slideUp()
         loadTweets();
-        // empty textarea and reset counter
+        // Empty textarea
         $(this).find('textarea').val('');
+        // Reset counter to 140 char limit
         $(this).find('.counter').val('140');
       });
     }
