@@ -4,7 +4,9 @@ nav {
   top: 0;
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  /* background-color: #4056A1; */
+  background-color: rgb(201, 137, 19);
+  background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
   color: #FFFFFF;
   display: flex;
   font-family: 'Source Sans Pro', sans-serif;
@@ -32,5 +34,8 @@ nav > span {
 
 /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
-  //
+  nav {
+    background-color: #4056A1;
+    background-image: none;
+  }
 }

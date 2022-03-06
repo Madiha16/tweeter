@@ -5,8 +5,12 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: peachpuff;
+  background-color: rgb(201, 137, 19);
   background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+}
+
+h2 {
+  color: white;
 }
 
 .bold {
@@ -20,5 +24,16 @@ The background-color should be a different colour than the nav and the body */
 
 /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
-  //
+  body > header {
+    width: 30%;
+    float: left;
+    margin-top: 170px;
+    margin-left: 50px;
+  }
+  img {
+    padding-top: 20px;
+  }
+  header > {
+    padding-top: 0;
+  }
 }
