@@ -39,7 +39,11 @@ the same background colour as the <body> element */
 /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
   main {
+<<<<<<< HEAD
     margin-top: 170px;
+=======
+    margin-top: 200px;
+>>>>>>> c1411ba6ee2e69ebac0085aff34f3d38d22eb579
     width: 60%;
     float: right;
   }
