@@ -1,14 +1,10 @@
-.profile {
-  height: 520px;
-  padding-top: 120px;
+header {
+  margin-top: 120px;
+  height: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-<<<<<<< HEAD
-=======
-  color: white;
->>>>>>> c1411ba6ee2e69ebac0085aff34f3d38d22eb579
   background-color: rgb(201, 137, 19);
   background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
 }
@@ -28,7 +24,6 @@ The background-color should be a different colour than the nav and the body */
 
 /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
-<<<<<<< HEAD
   body > header {
     width: 30%;
     float: left;
@@ -41,12 +36,4 @@ The background-color should be a different colour than the nav and the body */
   header > {
     padding-top: 0;
   }
-=======
-  .profile {
-    width: 30%;
-    float: left;
-    margin-top: 200px;
-    margin-left: 50px;
-  }
->>>>>>> c1411ba6ee2e69ebac0085aff34f3d38d22eb579
 }
