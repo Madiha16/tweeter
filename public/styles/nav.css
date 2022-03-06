@@ -5,6 +5,8 @@ nav {
   height: 120px;
   width: 100%;
   color: white;
+  background-color: rgb(201, 137, 19);
+  background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
   display: flex;
   font-family: 'Source Sans Pro', sans-serif;
   justify-content: space-between;
@@ -34,5 +36,8 @@ nav > span {
 @media only screen and (min-width: 1024px) {
   nav {
     background-color: #4056A1;
+  }
+  nav > span {
+    color: #4056A1;
   }
 }
